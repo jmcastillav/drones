@@ -41,6 +41,10 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+tasks.named('build') {
+	dependsOn 'spotlessApply'
+}
+
 spotless {
 	java {
 		googleJavaFormat()
