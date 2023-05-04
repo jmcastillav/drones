@@ -18,15 +18,15 @@ public final class DroneMapper {
    * @return the drone entity
    */
   public static DroneEntity toEntity(final DroneDto dto) {
-    final DroneModel model = DroneModel.getDroneModel(dto.getModel());
+    final DroneModel model = DroneModel.getDroneModel(dto.model());
     return DroneEntity.builder()
-        .serialNumber(dto.getSerialNumber())
+        .serialNumber(dto.serialNumber())
         .model(model)
         .weightLimit(model.getWeightCapacity())
-        .batteryCapacity(dto.getBatteryCapacity())
+        .batteryCapacity(dto.batteryCapacity())
         .state(
-            Objects.nonNull(dto.getState())
-                ? DroneEntity.DroneState.getDroneState(dto.getState())
+            Objects.nonNull(dto.state())
+                ? DroneEntity.DroneState.getDroneState(dto.state())
                 : DroneState.IDLE)
         .build();
   }

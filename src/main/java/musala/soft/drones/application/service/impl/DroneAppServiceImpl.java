@@ -100,7 +100,7 @@ public class DroneAppServiceImpl implements DroneAppService {
         .orElseThrow(
             () ->
                 new DroneException(
-                    HttpStatus.BAD_REQUEST,
+                    HttpStatus.NOT_FOUND,
                     String.format(
                         "A Drone with the serialNumber %s does not exists.", serialNumber)));
   }

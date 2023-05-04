@@ -52,10 +52,10 @@ class MedicationControllerTest {
   public void givenAValidMedication_whenUpdateMedicationIsCalled_thenUpdateNewMedicationIndo() {
     final MedicationDto medicationDto = createTestMedicationDto();
 
-    when(medicationAppService.update(eq("ABC123"), any())).thenReturn(medicationDto);
+    when(medicationAppService.patch(eq("ABC123"), any())).thenReturn(medicationDto);
 
     final ResponseEntity<MedicationDto> response =
-        medicationController.updateMedication("ABC123", medicationDto);
+        medicationController.patchMedication("ABC123", medicationDto);
 
     assertEquals(HttpStatus.OK, response.getStatusCode());
     assertEquals(medicationDto, response.getBody());

@@ -78,6 +78,12 @@ public class MedicationServiceImpl implements MedicationService {
   }
 
   @Override
+  public List<MedicationEntity> findAll() {
+    log.info("Retrieving all medications.");
+    return medicationRepository.findAll();
+  }
+
+  @Override
   public void deleteByCode(@NonNull final String code) {
     log.info("Deleting medication by code {}", code);
     final MedicationEntity medication =

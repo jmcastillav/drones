@@ -182,7 +182,7 @@ class DroneAppServiceImplTest {
     final List<DroneDto> availableDrones = droneAppService.getAvailableDrones();
     assertEquals(2, availableDrones.size());
     final List<String> availableDronesCodes =
-        availableDrones.stream().map(DroneDto::getSerialNumber).toList();
+        availableDrones.stream().map(DroneDto::serialNumber).toList();
     assertTrue(
         availableDronesCodes.contains(drone.getSerialNumber())
             && availableDronesCodes.contains(drone2.getSerialNumber()));

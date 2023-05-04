@@ -28,7 +28,7 @@ public class DroneBatteryScheduler {
             droneEntity -> {
               final DroneBatteryLogEntity droneBatteryLogEntity =
                   DroneBatteryLogEntity.builder()
-                      .droneId(droneEntity.getId())
+                      .droneSerial(droneEntity.getSerialNumber())
                       .batteryPercentage(droneEntity.getBatteryCapacity())
                       .created(LocalDateTime.now())
                       .build();

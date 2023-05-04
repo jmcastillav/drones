@@ -182,4 +182,18 @@ class MedicationServiceImplTest {
     assertThrows(
         MedicationException.class, () -> medicationService.update("Code", new MedicationEntity()));
   }
+
+  @Test
+  void whenFindAllisCalled_thenReturnAllMedicaments() throws MalformedURLException {
+    final MedicationEntity medication =
+        MedicationEntity.builder()
+            .name("testName")
+            .weight(3)
+            .code("U")
+            .imageUrl(new URL("https://test.com"))
+            .build();
+    when(medicationRepository.findAll()).thenReturn(List.of(medication));
+
+    assertTrue(medicationService.findAll().contains(medication));
+  }
 }

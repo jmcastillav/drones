@@ -27,7 +27,7 @@ public class DroneBatteryLogEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private Long droneId;
+  private String droneSerial;
   private Integer batteryPercentage;
   private LocalDateTime created;
 }

@@ -29,10 +29,10 @@ public final class MedicationMapper {
    */
   public static MedicationEntity toEntity(final MedicationDto dto) {
     return MedicationEntity.builder()
-        .name(dto.getName())
-        .weight(dto.getWeight())
-        .code(dto.getCode())
-        .imageUrl(dto.getImageUrl())
+        .name(dto.name())
+        .weight(dto.weight())
+        .code(dto.code())
+        .imageUrl(dto.imageUrl())
         .build();
   }
 }

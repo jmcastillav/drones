@@ -14,7 +14,7 @@ public final class LogMapper {
    */
   public static DroneBatteryLogDto toDto(final DroneBatteryLogEntity droneBatteryLogEntity) {
     return DroneBatteryLogDto.builder()
-        .droneId(droneBatteryLogEntity.getDroneId())
+        .droneSerial(droneBatteryLogEntity.getDroneSerial())
         .batteryPercentage(droneBatteryLogEntity.getBatteryPercentage())
         .created(droneBatteryLogEntity.getCreated())
         .build();

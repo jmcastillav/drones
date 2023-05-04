@@ -29,8 +29,8 @@ class AuditControllerTest {
     final LocalDateTime endDate = LocalDateTime.now();
     final List<DroneBatteryLogDto> batteryLogs =
         Arrays.asList(
-            new DroneBatteryLogDto(1L, 90, LocalDateTime.now()),
-            new DroneBatteryLogDto(2L, 80, LocalDateTime.now()));
+            new DroneBatteryLogDto("ABC123", 90, LocalDateTime.now()),
+            new DroneBatteryLogDto("DEF456", 80, LocalDateTime.now()));
     when(auditAppService.getDroneBatteryByDateRange(startDate, endDate)).thenReturn(batteryLogs);
 
     final ResponseEntity<List<DroneBatteryLogDto>> response =

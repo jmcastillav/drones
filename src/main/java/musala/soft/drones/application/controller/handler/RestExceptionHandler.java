@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
   @ExceptionHandler(DroneException.class)
-  protected ResponseEntity<ApiErrorResponseDto> handleInternalException(
+  protected ResponseEntity<ApiErrorResponseDto> handleDroneException(
       final DroneException exception) {
     log.error("DroneException throw with cause: {}", exception.getMessage());
     return ResponseEntity.status(exception.getHttpStatus())
@@ -29,7 +29,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
   }
 
   @ExceptionHandler(MedicationException.class)
-  protected ResponseEntity<ApiErrorResponseDto> handleInternalException(
+  protected ResponseEntity<ApiErrorResponseDto> handleMedicationException(
       final MedicationException exception) {
     log.error("MedicationException throw with cause: {}", exception.getMessage());
     return ResponseEntity.status(exception.getHttpStatus())
@@ -42,8 +42,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
   }
 
   @ExceptionHandler(LogException.class)
-  protected ResponseEntity<ApiErrorResponseDto> handleInternalException(
-      final LogException exception) {
+  protected ResponseEntity<ApiErrorResponseDto> handleLogException(final LogException exception) {
     log.error("LogException throw with cause: {}", exception.getMessage());
     return ResponseEntity.status(exception.getHttpStatus())
         .body(

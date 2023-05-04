@@ -49,6 +49,13 @@ public interface MedicationService {
   List<MedicationEntity> findByIds(Set<Long> ids);
 
   /**
+   * Find all list.
+   *
+   * @return the list
+   */
+  List<MedicationEntity> findAll();
+
+  /**
    * Delete by code.
    *
    * @param code the code

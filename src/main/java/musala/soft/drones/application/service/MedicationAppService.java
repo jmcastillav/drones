@@ -1,5 +1,6 @@
 package musala.soft.drones.application.service;
 
+import java.util.List;
 import musala.soft.drones.application.dto.MedicationDto;
 
 /** The interface Medication app service. */
@@ -28,7 +29,7 @@ public interface MedicationAppService {
    * @param medicationDto the medication dto
    * @return the medication dto
    */
-  MedicationDto update(String code, MedicationDto medicationDto);
+  MedicationDto patch(String code, MedicationDto medicationDto);
 
   /**
    * Delete by code.
@@ -36,4 +37,11 @@ public interface MedicationAppService {
    * @param code the code
    */
   void deleteByCode(String code);
+
+  /**
+   * Find all list.
+   *
+   * @return the list
+   */
+  List<MedicationDto> findAll();
 }

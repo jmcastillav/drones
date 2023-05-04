@@ -29,19 +29,19 @@ class AuditAppServiceImplTest {
   void getDroneBatteryByDateRange() {
     final DroneBatteryLogEntity droneBatteryLogEntity1 =
         DroneBatteryLogEntity.builder()
-            .droneId(1L)
+            .droneSerial("ABC123")
             .batteryPercentage(100)
             .created(LocalDateTime.of(1970, 1, 1, 12, 0, 0))
             .build();
     final DroneBatteryLogEntity droneBatteryLogEntity2 =
         DroneBatteryLogEntity.builder()
-            .droneId(1L)
+            .droneSerial("DEF456")
             .batteryPercentage(100)
             .created(LocalDateTime.of(1970, 1, 1, 12, 1, 0))
             .build();
     final DroneBatteryLogEntity droneBatteryLogEntity3 =
         DroneBatteryLogEntity.builder()
-            .droneId(1L)
+            .droneSerial("GHI789")
             .batteryPercentage(100)
             .created(LocalDateTime.of(1970, 1, 1, 12, 5, 0))
             .build();

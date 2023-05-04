@@ -74,7 +74,7 @@ class DroneControllerTest {
             new DroneDto("456", "model", 100, 100, "state2", Collections.emptyList()));
     when(droneAppService.getAvailableDrones()).thenReturn(droneDtos);
 
-    final ResponseEntity<List<DroneDto>> responseEntity = droneController.getDrone();
+    final ResponseEntity<List<DroneDto>> responseEntity = droneController.getIdleDrone();
 
     assertNotNull(responseEntity);
     assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
