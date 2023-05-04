@@ -17,11 +17,13 @@ public class DroneLoadServiceImpl implements DroneLoadService {
 
   @Override
   public List<DroneLoadEntity> getDroneLoadById(final long droneId) {
+    log.info("Retrieving drone load by drone id {}", droneId);
     return droneLoadRepository.findAllByDroneId(droneId);
   }
 
   @Override
   public void addDroneLoad(final long droneId, final List<Long> medicamentIds) {
+    log.info("Adding drone load for drone id {} with medication ids {}", droneId, medicamentIds);
     medicamentIds.forEach(
         medicamentId -> {
           final DroneLoadEntity toAdd =

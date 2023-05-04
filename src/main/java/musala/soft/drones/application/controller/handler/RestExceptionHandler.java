@@ -18,6 +18,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
   @ExceptionHandler(DroneException.class)
   protected ResponseEntity<ApiErrorResponseDto> handleInternalException(
       final DroneException exception) {
+    log.error("DroneException throw with cause {}.", exception.getMessage());
     return ResponseEntity.status(exception.getHttpStatus())
         .body(
             ApiErrorResponseDto.builder()
@@ -30,6 +31,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
   @ExceptionHandler(MedicationException.class)
   protected ResponseEntity<ApiErrorResponseDto> handleInternalException(
       final MedicationException exception) {
+    log.error("MedicationException throw with cause {}.", exception.getMessage());
     return ResponseEntity.status(exception.getHttpStatus())
         .body(
             ApiErrorResponseDto.builder()
@@ -42,6 +44,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
   @ExceptionHandler(LogException.class)
   protected ResponseEntity<ApiErrorResponseDto> handleInternalException(
       final LogException exception) {
+    log.error("LogException throw with cause {}.", exception.getMessage());
     return ResponseEntity.status(exception.getHttpStatus())
         .body(
             ApiErrorResponseDto.builder()

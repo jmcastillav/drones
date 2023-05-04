@@ -27,6 +27,7 @@ public class DroneBatteryLogServiceImpl implements DroneBatteryLogService {
   @Override
   public List<DroneBatteryLogEntity> getLog(
       @NonNull final LocalDateTime startDate, @NonNull final LocalDateTime endDate) {
+    log.info("Received request to get drone battery log between {} and {}", startDate, endDate);
     if (startDate.isAfter(endDate)) {
       throw new LogException(HttpStatus.BAD_REQUEST, "StartDate cannot be after the EndDate.");
     }

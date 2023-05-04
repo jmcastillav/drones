@@ -141,6 +141,7 @@ public class DroneAppServiceImpl implements DroneAppService {
 
   private void validateDroneWeight(
       final DroneEntity drone, final List<MedicationEntity> medications) {
+    log.info("Validating drone {} weight with medications {}", drone, medications);
     final int totalWeight = medications.stream().mapToInt(MedicationEntity::getWeight).sum();
     if (totalWeight > drone.getWeightLimit()) {
       throw new DroneException(

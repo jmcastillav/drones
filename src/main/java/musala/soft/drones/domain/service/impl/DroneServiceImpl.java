@@ -26,6 +26,7 @@ public class DroneServiceImpl implements DroneService {
 
   @Override
   public DroneEntity saveDrone(@NonNull final DroneEntity drone) {
+    log.info("Saving new drone: {}", drone);
     validateDroneInput(drone);
     if (findBySerialNumber(drone.getSerialNumber()).isPresent()) {
       throw new DroneException(
@@ -39,11 +40,13 @@ public class DroneServiceImpl implements DroneService {
 
   @Override
   public Optional<DroneEntity> findBySerialNumber(@NonNull final String serialNumber) {
+    log.info("Searching for drone with serial number: {}", serialNumber);
     return droneRepository.findBySerialNumber(serialNumber);
   }
 
   @Override
   public DroneEntity updateDrone(@NonNull final DroneEntity droneEntity) {
+    log.info("updating drone: {}", droneEntity);
     if (droneRepository.findById(droneEntity.getId()).isEmpty()) {
       throw new DroneException(
           HttpStatus.BAD_REQUEST,
@@ -54,6 +57,7 @@ public class DroneServiceImpl implements DroneService {
 
   @Override
   public List<DroneEntity> getAvailableDrones() {
+    log.info("Getting all available drones.");
     return droneRepository.findAllByStateIs(DroneState.IDLE);
   }
 
@@ -63,6 +67,7 @@ public class DroneServiceImpl implements DroneService {
   }
 
   private void validateDroneInput(final DroneEntity drone) {
+    log.info("Validating drone input {}", drone);
     if (Objects.isNull(drone.getSerialNumber()) || drone.getSerialNumber().isBlank()) {
       throw new DroneException(HttpStatus.BAD_REQUEST, "Serial number is mandatory");
     }
