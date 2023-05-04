@@ -1,0 +1,14 @@
+<FindBugsFilter>
+    <Match>
+        <Or>
+            <!-- May expose internal representation by incorporating reference to mutable object. Fails when using Dependency Injection -->
+            <Bug pattern="EI_EXPOSE_REP2"/>
+        </Or>
+    </Match>
+    <Match>
+        <Package name="~test\..*"/>
+    </Match>
+    <Match>
+        <Class name="~.*Test$"/>
+    </Match>
+</FindBugsFilter>
